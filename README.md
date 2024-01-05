@@ -1,1 +1,2 @@
-Read me
+#Hi, I'm Sam...
+##Welcome to the repository for my personal website, at see [samfrench.io](www.samfrench.io)
