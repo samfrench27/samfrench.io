@@ -1,14 +1,3 @@
-/**
-* Template Name: iPortfolio
-* Updated: Nov 17 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
@@ -23,7 +12,6 @@ a:hover {
   color: #37b3ed;
   text-decoration: none;
 }
-
 h1,
 h2,
 h3,
@@ -33,9 +21,6 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
   visibility: hidden;
@@ -66,9 +51,6 @@ h6 {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
 #header {
   position: fixed;
   top: 0;
@@ -153,10 +135,6 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/* Desktop Navigation */
 .nav-menu {
   padding: 30px 0 0 0;
 }
@@ -205,7 +183,6 @@ h6 {
   color: #149ddd;
 }
 
-/* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -235,14 +212,12 @@ h6 {
   left: 0;
 }
 
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/Profile.png") top center;
+  background: url("../img/SamFrenchHero.JPG") top right;
   background-size: cover;
+  filter: opacity(.8);
 }
 
 #hero:before {
