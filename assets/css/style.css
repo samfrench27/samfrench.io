@@ -1,15 +1,32 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  margin: 0;
+  background-color: grey;
+}
 header {
   display: flex;
+  position: fixed;
+  Top:0;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0px; /* Adjust the 50px as needed */
   background: #282829;
+  z-index: 1;
 }
 
 .logo-container {
-  width: 400px; /* Adjust as needed */
-  height: 50px; /* Adjust as needed */
+  width: 400px;
+  height: 80px; 
   overflow: hidden;
+  padding: 0px 0px 0px 20px;
+}
+@media screen and (max-width: 768px) {
+  .logo-container {
+    min-width: 400px;
+  }
 }
 
 .logo {
@@ -20,5 +37,30 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 20px; /* Adjust as needed */
+  gap: 20px;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color:white;
+  text-decoration: none;
+  padding-right: 20px;
+  font-size: 20px;
+}
+.nav-links a:hover {
+  color: #5271FF; /* Change to any color you like */
+}
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/SamFrenchHero.jpg');
+  background-size: cover;
+  height: 750px; /* Adjust as needed */
+}
+.hero h2 {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  font-size: 80px;
 }
