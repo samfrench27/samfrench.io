@@ -1,10 +1,6 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
-body {
-  margin: 0;
-  background-color: grey;
-}
 header {
   display: flex;
   position: fixed;
@@ -12,29 +8,45 @@ header {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px; /* Adjust the 50px as needed */
+  padding: 20px 0px;
   background: #282829;
   z-index: 1;
 }
-
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .logo-container {
   width: 400px;
   height: 80px; 
   overflow: hidden;
   padding: 0px 0px 0px 20px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) { 
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
   .logo-container {
-    min-width: 400px;
+    padding-bottom: 20px;
+  }
+  #home {
+    background-attachment: scroll;
+    background-size: contain;
+    background-repeat: no-repeat; 
+    background-position: bottom;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/mobile-hero.png');
   }
 }
-
 .logo {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .nav-links {
   display: flex;
   gap: 20px;
@@ -45,22 +57,245 @@ header {
 .nav-links a {
   color:white;
   text-decoration: none;
-  padding-right: 20px;
+  padding-right: 40px;
   font-size: 20px;
 }
 .nav-links a:hover {
-  color: #5271FF; /* Change to any color you like */
+  color: #5271FF;
 }
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/SamFrenchHero.jpg');
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/SamFrenchHero.jpg');
+  background-attachment: fixed;
   background-size: cover;
-  height: 750px; /* Adjust as needed */
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 5%;
 }
 .hero h2 {
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%);
   color: white; 
   font-size: 80px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.social-links img {
+  width: 100px;
+}
+.social-links img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+.logo-section {
+  display: flex;
+  justify-content: center;
+  padding:30px 0px 20px 0px;
+}
+.logo-box {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.logo-box img {
+  width: 20%;
+}
+.token-logo {
+  width: 50px;
+  height: auto;
+}
+.about-section {
+  display: flex;
+  justify-content: center;
+  padding:30px 0px 20px 0px;
+}
+.about-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-around;
+  width: 75%;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin:auto;
+  margin-bottom: 30px;
+}
+.about-box p  {
+  margin:0;
+  padding: 0 20px 20px 20px;
+}
+.about-box h2 {
+  padding: 10px 20px 0px 20px;
+}
+.logo-box, .about-box {
+  box-sizing: border-box;
+}
+.resume-section {
+  display: flex;
+  justify-content: center;
+  padding:30px 0px 20px 0px;
+}
+.resume-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-around;
+  width: 75%;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin:auto;
+  margin-bottom: 30px;
+}
+.resume-box p  {
+  margin:0;
+  padding: 0 10px 10px 20px;
+}
+.resume-box h2 {
+  margin:0;
+  padding: 10px 20px 0px 20px;
+}
+.resume-box h3 {
+  margin:0;
+  padding: 10px 20px 0px 20px;
+}
+.resume-box h4 {
+  margin:0;
+  padding: 10px 20px 0px 20px;
+}
+.resume-box, .about-box {
+  box-sizing: border-box;
+}
+.Token-job {
+  display: flex;
+  flex-direction: row;
+}
+.Token-logo img {
+  width: 200px;
+  height: auto;
+}
+.BestInvest-job {
+  display: flex;
+  flex-direction: row;
+}
+.BestInvest-logo img {
+  width: 200px;
+  height: auto;
+}
+.Greensill-job {
+  display: flex;
+  flex-direction: row;
+}
+.Greensill-logo img {
+  width: 200px;
+  height: auto;
+}
+.Barclays-job {
+  display: flex;
+  flex-direction: row;
+}
+.Barclays-logo img {
+  width: 200px;
+  height: auto;
+}
+.contact-section {
+  display: flex;
+  justify-content: center;
+  padding:30px 0px 30px 0px;
+  text-align: left;
+}
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  justify-content: space-around;
+  width: 75%;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: auto;
+}
+.contact-box p {
+  margin: 0;
+  padding: 0 10px 10px 20px;
+}
+.contact-box h2 {
+  padding: 10px 20px 0px 20px;
+}
+.contact-section form {
+  width: 100%;
+  max-width: 600px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+.contact-section input, .contact-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+.contact-section input:focus, .contact-section textarea:focus {
+  border-color: #007BFF;
+}
+.contact-section button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+}
+.contact-section button:hover {
+  background-color: #0056b3;
+}
+.about-box, .resume-box, .projects-box, .contact-box {
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.footer-section {
+  background-color: #282829;
+  color:#b6c7d6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+}
+.footer-logo-container {
+  width: 250px;
+  height: 150px; 
+  overflow: hidden;
+  padding: 20px 0px 0px 20px;
+}
+.footer-section p {
+  margin:10px;
+}
+#scrollToTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: auto;
+  right:20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+#scrollToTopButton img {
+  width: 60px;
+  height: auto;
 }
