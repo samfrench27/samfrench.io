@@ -62,7 +62,7 @@ html {
 
 .hero {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/SamFrenchHero.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/SamFrenchHero.JPG');
   background-attachment: fixed;
   background-size: cover;
   height: 750px;
