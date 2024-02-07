@@ -364,6 +364,14 @@ html {
     background-position: center ;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/SamFrenchHero\ mob.jpg');
   }
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5%;
+  }
   .contact-section label {
     width: 75%;
     box-sizing: border-box;
