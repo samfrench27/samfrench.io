@@ -60,19 +60,6 @@ html {
   color: #5271FF;
 }
 
-.hero {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/SamFrenchHero.JPG');
-  background-attachment: fixed;
-  background-size: cover;
-  height: 750px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 5%;
-}
-
 .hero h2 {
   color: white; 
   font-size: 80px;
@@ -82,8 +69,10 @@ html {
 
 .social-links {
   display: flex;
+  align-items: flex-start;
   flex-direction: row;
   gap: 20px;
+ 
 }
 
 .social-links img {
@@ -269,6 +258,12 @@ html {
   margin: 0;
 }
 
+#contactForm {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .contact-section form {
   width: 95%;
   max-width: 600px;
@@ -281,9 +276,9 @@ html {
   width: 95%;
   box-sizing: border-box;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  margin: 15px 0px 15px 0px;
+  border: 2px solid #c5c5c5;
+  border-radius: 40px;
 }
 
 .contact-section input:focus, .contact-section textarea:focus {
@@ -411,12 +406,52 @@ html {
   }
 }
 
-@media screen and (max-width: 380px) {
+/* Media query for devices shorter than 380px, notably mobile devices */
+@media screen and (max-width: 400px) {
+  header {
+    z-index: 2;
+  }
   header .nav-links a {
     font-size: 15px;
     padding: 0 5px;
   }
   header .nav-links {
     padding-inline-start: 5px;
+  }
+  .hero {
+    padding-top: 190px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: flex-start; /* height of your header */;
+  }
+  .hero-content h2 {
+    font-size: 30px;
+  }
+  .social-links {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  .social-links img {
+    width: 50px;
+  }
+}
+
+/* Media query for devices larger than 1000px (primarily laptops and desktops) */
+@media screen and (min-width:1000px) {
+  .hero {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/SamFrenchHero.JPG');
+    background-attachment: fixed;
+    background-size: cover;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5%;
   }
 }
