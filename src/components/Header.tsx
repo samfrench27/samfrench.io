@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaTwitter, FaMedium } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,11 +19,18 @@ export default function Header() {
     <header className="relative bg-gradient-to-r from-blue-900 to-blue-600 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center">
-          <div className="w-32 h-32 rounded-full border-4 border-white bg-slate-100 flex items-center justify-center text-blue-900 text-4xl font-bold mb-6">
-            <i className="fas fa-user"></i>
+          {/* Replace the icon with an actual image */}
+          <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative">
+            <Image 
+              src="/profile-photo.png" // Put your photo in public folder with this name
+              alt="Sam French"
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
           </div>
           <div>
-            <h1 className="text-4xl font-bold mb-2">Sam French</h1>
+            <h1 className="text-4xl font-bold mb-2 mt-6">Sam French</h1>
             <h2 className="text-2xl font-medium mb-4">Product Leader & Full Stack Developer</h2>
             <p className="mb-4">Building cutting-edge payment solutions and scaling high-performing teams</p>
             <div className="flex justify-center space-x-4">
