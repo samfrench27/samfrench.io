@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaTwitter, FaMedium } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub} from 'react-icons/fa';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
