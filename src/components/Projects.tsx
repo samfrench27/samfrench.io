@@ -6,9 +6,9 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Mock Payment Gateway',
-      description: 'A custom payment gateway integration with Token and Truelayer Hosted Payment Pages to initiate Single Immediate Payments and Variable Recurring Payments.',
-      tags: ['React', 'Express.js', 'AWS', 'Open Banking'],
+      title: 'Variable Recurring Payments',
+      description: 'Led the development and launch of Token.io\'s Variable Recurring Payments proposition in the UK, partnering with Tier 1 Financial Institutions to deliver sweeping and non-sweeping payment use cases.',
+      tags: ['Open Banking', 'VRP', 'A2A Payments', 'API Platform'],
       icon: <FaCreditCard className="text-5xl text-blue-600" />,
       demoLink: 'https://webapp.samfrench.io/',
       codeLink: '#'
@@ -16,17 +16,17 @@ export default function Projects() {
     {
       id: 2,
       title: 'Payment Analytics Dashboard',
-      description: 'A data visualization tool for tracking payment performance metrics including conversion rates, success rates, and processing times across different payment methods.',
-      tags: ['React', 'D3.js', 'Node.js', 'PostgreSQL'],
+      description: 'Developed data-driven analytics platform for tracking A2A payment performance metrics including conversion rates, success rates, and processing times across different regions and banks.',
+      tags: ['Performance Metrics', 'Data Visualization', 'Payment Insights'],
       icon: <FaChartLine className="text-5xl text-blue-600" />,
       demoLink: '#',
       codeLink: '#'
     },
     {
       id: 3,
-      title: 'Open Banking Developer Toolkit',
-      description: 'A collection of tools and utilities for developers working with Open Banking APIs, including authentication helpers, request builders, and response parsers.',
-      tags: ['JavaScript', 'API', 'OAuth', 'Documentation'],
+      title: 'Open Banking Connectivity Network',
+      description: 'Expanded Token.io\'s bank connectivity across 7+ European countries, establishing API connections to over 2500 financial institutions for payment and data retrieval services.',
+      tags: ['Bank Connectivity', 'API Integration', 'PSD2', 'Scaling'],
       icon: <FaCode className="text-5xl text-blue-600" />,
       demoLink: '#',
       codeLink: '#'
@@ -37,7 +37,7 @@ export default function Projects() {
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-blue-900 mb-16 relative">
-          Personal Projects
+          Product Leadership
           <span className="block w-20 h-1 bg-cyan-500 mx-auto mt-4"></span>
         </h2>
         
@@ -72,7 +72,7 @@ export default function Projects() {
                     rel="noopener" 
                     className="inline-block px-4 py-2 border-2 border-cyan-500 text-cyan-500 font-medium rounded hover:bg-cyan-500 hover:text-white transition-colors"
                   >
-                    Live Demo
+                    Learn More
                   </a>
                   <a 
                     href={project.codeLink} 
@@ -80,7 +80,7 @@ export default function Projects() {
                     rel="noopener" 
                     className="inline-block px-4 py-2 bg-blue-900 text-white font-medium rounded hover:bg-blue-800 transition-colors"
                   >
-                    Source Code
+                    See Details
                   </a>
                 </div>
               </div>

@@ -11,6 +11,8 @@ module.exports = {
       animation: {
         'pulse': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'blink': 'blink 1s infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 8s ease-in-out infinite',
       },
       keyframes: {
         blink: {
@@ -25,6 +27,8 @@ module.exports = {
       spacing: {
         '1/10': '10%',
         '1/5': '20%',
+        '1/3': '33.333333%',
+        '1/4': '25%', 
       },
     },
     container: {

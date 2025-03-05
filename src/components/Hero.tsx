@@ -1,15 +1,17 @@
 "use client";
 import React from 'react';
-import Link from 'next/link';
+// Remove the unused Link import
 
 export default function Hero() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center">
-          <h2 className="text-4xl font-bold text-blue-900 mb-6">Bridging Product Leadership & Technical Innovation</h2>
+          <h1 className="text-4xl font-bold text-blue-900 mb-6">Product Leader</h1>
           <p className="text-xl text-gray-700 max-w-3xl mb-8">
-            I'm a product leader with a passion for payment technology, currently leading product strategy at Token.io. In my spare time, I enjoy building full-stack applications that solve real-world problems.
+          A mission driven product leader who thrives scaling businesses & high performing teams.
+
+I am passionate about growing and developing high performing teams in fast paced engineering environments; taking innovative digital products and solutions from ideation to market. I have a track record developing products used by millions of customers, forming synergistic alliances with both Tier 1 Financial institutions and big Tech companies; whilst maintaining a commercial focus on P&L and business development. 
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <a 
@@ -42,25 +44,25 @@ export default function Hero() {
                 <span className="text-white">whoami</span>
               </div>
               <div className="text-gray-300 ml-6 mb-4">
-                Product leader at Token.io, specializing in Variable Recurring Payments and Connectivity
+                Director of Product at Token.io, specializing in Account-to-Account Payments and Open Banking
               </div>
               
               <div className="flex mb-3">
                 <span className="text-green-400 mr-2">$</span>
-                <span className="text-white">cat skills.txt</span>
+                <span className="text-white">cat expertise.txt</span>
               </div>
               <div className="text-gray-300 ml-6 mb-4">
-                Payments Technology | API Development | Product Strategy | React | Node.js | AWS
+                Payment Technology | Open Banking | Product Strategy | Account-to-Account Payments | API Development
               </div>
               
               <div className="flex mb-3">
                 <span className="text-green-400 mr-2">$</span>
-                <span className="text-white">npm start dev-portfolio</span>
+                <span className="text-white">npm start token-io-platform</span>
               </div>
               <div className="text-gray-300 ml-6 mb-4">
-                Starting development server...<br />
-                Server running at http://localhost:3000<br />
-                Happy coding!
+                Starting Token.io platform...<br />
+                Open Banking connectivity established<br />
+                A2A payment rails activated
               </div>
               
               <div className="flex">

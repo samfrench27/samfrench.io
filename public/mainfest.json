@@ -1,0 +1,26 @@
+{
+    "name": "Sam French - Director of Product at Token.io",
+    "short_name": "Sam French",
+    "description": "Professional profile of Sam French, Director of Product at Token.io specializing in Account-to-Account payments and based in Manchester, UK",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1e3a8a",
+    "icons": [
+      {
+        "src": "/favicon.ico",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/x-icon"
+      },
+      {
+        "src": "/logo192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/logo512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }

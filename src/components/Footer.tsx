@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaTwitter, FaMedium } from 'react-icons/fa';
+import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   return (
@@ -17,59 +17,8 @@ export default function Footer() {
           </div>
           
           {/* Social Links */}
-          <div className="flex justify-center gap-6 mb-8">
-            <a 
-              href="mailto:sam@samfrench.io" 
-              aria-label="Email Sam French" 
-              className="hover:text-cyan-400 transition-colors"
-            >
-              <FaEnvelope className="text-xl" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/sam-french-359b74a8/" 
-              target="_blank" 
-              rel="noopener" 
-              aria-label="Sam French LinkedIn profile" 
-              className="hover:text-cyan-400 transition-colors"
-            >
-              <FaLinkedin className="text-xl" />
-            </a>
-            <a 
-              href="https://github.com/" 
-              target="_blank" 
-              rel="noopener" 
-              aria-label="Sam French GitHub profile" 
-              className="hover:text-cyan-400 transition-colors"
-            >
-              <FaGithub className="text-xl" />
-            </a>
-            <a 
-              href="tel:+447874226876" 
-              aria-label="Call Sam French" 
-              className="hover:text-cyan-400 transition-colors"
-            >
-              <FaPhone className="text-xl" />
-            </a>
-            <a 
-              href="https://twitter.com/" 
-              target="_blank" 
-              rel="noopener" 
-              aria-label="Sam French Twitter profile" 
-              className="hover:text-cyan-400 transition-colors"
-            >
-              <FaTwitter className="text-xl" />
-            </a>
-            <a 
-              href="https://medium.com/" 
-              target="_blank" 
-              rel="noopener" 
-              aria-label="Sam French Medium articles" 
-              className="hover:text-cyan-400 transition-colors"
-            >
-              <FaMedium className="text-xl" />
-            </a>
-          </div>
-          
+          {/* Social Links */}
+          <SocialLinks className="mb-8" variant="dark" />
           {/* Copyright */}
           <div className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} Sam French. All Rights Reserved.

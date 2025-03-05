@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaTwitter, FaMedium } from 'react-icons/fa';
 import Image from 'next/image';
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaTwitter, FaMedium } from 'react-icons/fa';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,50 +15,67 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Adding a base transition class for all icons
+  const baseTransition = "transform transition-all duration-300 ease-in-out";
+  
   return (
-    <header className="relative bg-gradient-to-r from-blue-900 to-blue-600 text-white py-16">
+    <header className={`relative bg-gradient-to-r from-blue-800 via-indigo-600 to-cyan-500 text-white py-16 ${scrolled ? 'shadow-md' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center">
-          {/* Replace the icon with an actual image */}
-          <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative">
+          {/* Profile Photo */}
+          <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl">
             <Image 
-              src="/profile-photo.png" // Put your photo in public folder with this name
+              src="/profile-photo.png" 
               alt="Sam French"
               fill
               style={{ objectFit: 'cover' }}
               priority
             />
           </div>
+          
           <div>
-            <h1 className="text-4xl font-bold mb-2 mt-6">Sam French</h1>
-            <h2 className="text-2xl font-medium mb-4">Product Leader & Full Stack Developer</h2>
-            <p className="mb-4">Building cutting-edge payment solutions and scaling high-performing teams</p>
-            <div className="flex justify-center space-x-4">
-              <a href="mailto:sam@samfrench.io" aria-label="Email Sam French" className="hover:-translate-y-1 transition-transform">
+            <h1 className="text-4xl font-bold mb-2 mt-6 text-white drop-shadow-sm">Sam French</h1>
+            <h2 className="text-2xl font-medium mb-4 text-cyan-100">Director of Product at Token.io</h2>
+            <p className="mb-4 text-indigo-100">Building cutting-edge Account-to-Account payment solutions at Token.io</p>
+            
+            {/* Social Links - Directly embedded for troubleshooting */}
+            <div className="flex justify-center space-x-5 mb-2 relative z-10">
+              <a 
+                href="mailto:sam@samfrench.io" 
+                aria-label="Email Sam French" 
+                className={`text-white hover:text-cyan-200 hover:scale-125 ${baseTransition}`}
+              >
                 <FaEnvelope className="text-xl" />
               </a>
-              <a href="https://www.linkedin.com/in/sam-french-359b74a8/" target="_blank" rel="noopener" aria-label="Sam French LinkedIn profile" className="hover:-translate-y-1 transition-transform">
+              <a 
+                href="https://www.linkedin.com/in/sam-french-359b74a8/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Sam French LinkedIn profile" 
+                className={`text-white hover:text-cyan-200 hover:scale-125 ${baseTransition}`}
+              >
                 <FaLinkedin className="text-xl" />
               </a>
-              <a href="https://github.com/" target="_blank" rel="noopener" aria-label="Sam French GitHub profile" className="hover:-translate-y-1 transition-transform">
+              <a 
+                href="https://github.com/samfrench27" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Sam French GitHub profile" 
+                className={`text-white hover:text-cyan-200 hover:scale-125 ${baseTransition}`}
+              >
                 <FaGithub className="text-xl" />
-              </a>
-              <a href="tel:+447874226876" aria-label="Call Sam French" className="hover:-translate-y-1 transition-transform">
-                <FaPhone className="text-xl" />
-              </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Sam French Twitter profile" className="hover:-translate-y-1 transition-transform">
-                <FaTwitter className="text-xl" />
-              </a>
-              <a href="https://medium.com/" target="_blank" rel="noopener" aria-label="Sam French Medium articles" className="hover:-translate-y-1 transition-transform">
-                <FaMedium className="text-xl" />
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 overflow-hidden z-0 opacity-20">
-        <div className="absolute top-0 left-1/10 w-48 h-48 rounded-full bg-cyan-500 filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/5 w-64 h-64 rounded-full bg-indigo-600 filter blur-3xl"></div>
+      
+      {/* Background gradients */}
+      <div className="absolute inset-0 overflow-hidden z-0 opacity-30 pointer-events-none">
+        <div className="absolute top-0 left-1/10 w-48 h-48 rounded-full bg-purple-500 filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-0 right-1/5 w-64 h-64 rounded-full bg-cyan-400 filter blur-3xl animate-float-slow"></div>
+        <div className="absolute top-1/4 right-1/4 w-36 h-36 rounded-full bg-indigo-300 filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-52 h-52 rounded-full bg-blue-400 filter blur-3xl animate-float-slow"></div>
       </div>
     </header>
   );
