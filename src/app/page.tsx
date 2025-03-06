@@ -20,10 +20,6 @@ export default function Home() {
       
       <section id="experience" className="py-20 bg-gray-50">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-16 relative">
-            Professional Journey
-            <span className="block w-20 h-1 bg-cyan-500 mx-auto mt-4"></span>
-          </h2>
           <InteractiveJourney />
         </div>
       </section>
