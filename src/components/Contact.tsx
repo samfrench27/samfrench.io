@@ -2,77 +2,114 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 interface FormData {
-    name: string;
-    email: string;
-    message: string;
-  }
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface StatusState {
+  submitted: boolean;
+  success: boolean;
+  message: string;
+  isLoading?: boolean;
+}
+
+export default function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    message: ''
+  });
   
-  interface StatusState {
-    submitted: boolean;
-    success: boolean;
-    message: string;
-  }
-  
-  export default function Contact() {
-    const [formData, setFormData] = useState<FormData>({
-      name: '',
-      email: '',
-      message: ''
-    });
-    
-    const [status, setStatus] = useState<StatusState>({
-      submitted: false,
-      success: false,
-      message: ''
-    });
-  
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { name, value } = e.target;
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    };
-  
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+  const [status, setStatus] = useState<StatusState>({
+    submitted: false,
+    success: false,
+    message: '',
+    isLoading: false
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     
     // Validate form
     if (!formData.name || !formData.email || !formData.message) {
       setStatus({
         submitted: true,
         success: false,
-        message: 'Please fill in all fields'
+        message: 'Please fill in all fields',
+        isLoading: false
       });
       return;
     }
     
-    // In a real implementation, you would send the form data to your server/API here
-    // For now, we'll simulate a successful submission
-    
-    setStatus({
-      submitted: true,
-      success: true,
-      message: 'Thank you for your message! I\'ll get back to you soon.'
-    });
-    
-    // Reset form after successful submission
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
-    
-    // Clear success message after 5 seconds
-    setTimeout(() => {
+    try {
       setStatus({
-        submitted: false,
-        success: false,
-        message: ''
+        ...status,
+        isLoading: true
       });
+      
+      // Send the form data to our API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Success
+        setStatus({
+          submitted: true,
+          success: true,
+          message: 'Thank you for your message! I\'ll get back to you soon.',
+          isLoading: false
+        });
+        
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        // Error
+        setStatus({
+          submitted: true,
+          success: false,
+          message: data.error || 'Something went wrong. Please try again.',
+          isLoading: false
+        });
+      }
+    } catch (error) {
+      setStatus({
+        submitted: true,
+        success: false,
+        message: 'Error submitting form. Please try again.',
+        isLoading: false
+      });
+    }
+    
+    // Clear status message after 5 seconds
+    setTimeout(() => {
+      setStatus(prev => ({
+        ...prev,
+        submitted: false,
+      }));
     }, 5000);
   };
 
+  // The rest of your component stays the same
   return (
     <div className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -89,6 +126,7 @@ interface FormData {
               </div>
             )}
             
+            {/* Form fields remain the same */}
             <div className="mb-6">
               <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
               <input
@@ -130,9 +168,10 @@ interface FormData {
             
             <button
               type="submit"
-              className="w-full bg-blue-900 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              disabled={status.isLoading}
+              className="w-full bg-blue-900 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70"
             >
-              Send Message
+              {status.isLoading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
