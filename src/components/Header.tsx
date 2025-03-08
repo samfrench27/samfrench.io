@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { FaEnvelope, FaLinkedin, FaGithub, FaCode, FaServer, FaDatabase } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { useTheme } from './ThemeContext';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function AnimatedHeader() {
-  const [scrolled, setScrolled] = useState(false);
+  const { isDarkMode, setIsDarkMode } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particlesRef = useRef<any[]>([]);
   const animationRef = useRef<number | null>(null);
@@ -30,7 +32,7 @@ export default function AnimatedHeader() {
     const resizeCanvas = () => {
       if (!canvas) return;
       canvas.width = window.innerWidth;
-      canvas.height = 400; // Fixed height for header
+      canvas.height = 500; // Fixed height for header
     };
     
     const createParticles = () => {
@@ -44,13 +46,21 @@ export default function AnimatedHeader() {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: Math.random() * 3 + 1,
-          color: [
-            'rgba(0, 153, 255, 0.6)',  // Blue
-            'rgba(102, 204, 255, 0.6)', // Light blue
-            'rgba(0, 204, 204, 0.6)',   // Teal
-            'rgba(153, 51, 255, 0.6)',  // Purple
-            'rgba(0, 255, 204, 0.6)',   // Cyan
-          ][Math.floor(Math.random() * 5)],
+          color: isDarkMode 
+            ? [
+                'rgba(138, 43, 226, 0.6)', // Purple
+                'rgba(148, 0, 211, 0.6)',  // Dark Violet
+                'rgba(75, 0, 130, 0.6)',   // Indigo
+                'rgba(0, 191, 255, 0.6)',  // Deep Sky Blue 
+                'rgba(255, 215, 0, 0.3)',  // Gold (stars)
+              ][Math.floor(Math.random() * 5)]
+            : [
+                'rgba(0, 153, 255, 0.6)',  // Blue
+                'rgba(102, 204, 255, 0.6)', // Light blue
+                'rgba(0, 204, 204, 0.6)',   // Teal
+                'rgba(153, 51, 255, 0.6)',  // Purple
+                'rgba(0, 255, 204, 0.6)',   // Cyan
+              ][Math.floor(Math.random() * 5)],
           speedX: Math.random() * 2 - 1,
           speedY: Math.random() * 2 - 1,
           connected: []
@@ -92,7 +102,8 @@ export default function AnimatedHeader() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100})`;
+            const connectionColor = isDarkMode ? `rgba(138, 43, 226, ${1 - dist / 100})` : `rgba(255, 255, 255, ${1 - dist / 100})`;
+            ctx.strokeStyle = connectionColor;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -103,10 +114,12 @@ export default function AnimatedHeader() {
     };
     
     // Initialize
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resizeCanvas();
       createParticles();
-    });
+    };
+    
+    window.addEventListener('resize', handleResize);
     
     resizeCanvas();
     createParticles();
@@ -114,31 +127,28 @@ export default function AnimatedHeader() {
     
     // Cleanup
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
-  
-  // Scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isDarkMode]);
   
   // Neon text effect with dynamic color change
   const [colorIndex, setColorIndex] = useState(0);
-  const neonColors = [
+  const dayModeColors = [
     'text-blue-500 shadow-blue-500',
-    'text-purple-500 shadow-purple-500',
     'text-cyan-500 shadow-cyan-500',
     'text-indigo-500 shadow-indigo-500'
   ];
+  
+  const nightModeColors = [
+    'text-purple-500 shadow-purple-500',
+    'text-pink-500 shadow-pink-500',
+    'text-indigo-400 shadow-indigo-400'
+  ];
+  
+  const neonColors = isDarkMode ? nightModeColors : dayModeColors;
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -146,20 +156,25 @@ export default function AnimatedHeader() {
     }, 2000);
     
     return () => clearInterval(interval);
-  }, []);
-  
-  // Removing terminal text effect since we no longer have the terminal window
+  }, [neonColors.length]);
   
   return (
     <header className="relative overflow-hidden" style={{ height: '500px' }}>
+      {/* Theme Toggle Button */}
+      <ThemeToggle onModeChange={setIsDarkMode} />
+      
       {/* Particle animation canvas */}
       <canvas 
         ref={canvasRef}
         className="absolute top-0 left-0 w-full h-full z-0"
-        style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0891b2 100%)' }}
+        style={{ 
+          background: isDarkMode 
+            ? 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)' 
+            : 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0891b2 100%)'
+        }}
       />
       
-      {/* Tech-inspired decorative elements - removing the blue circle on left */}
+      {/* Tech-inspired decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden">
         <div className="absolute bottom-20 right-10 w-60 h-60 border-2 border-purple-500 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute top-1/4 right-1/3 w-20 h-20 bg-blue-500 opacity-10 animate-ping"></div>
@@ -176,7 +191,7 @@ export default function AnimatedHeader() {
           <div className="relative inline-block">
             <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1 mx-auto">
               <Image 
-                src="/profile-photo.png" 
+                src="/profile-photo.png"
                 alt="Sam French"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -187,30 +202,40 @@ export default function AnimatedHeader() {
             </div>
           </div>
           
-          <h1 className={`text-4xl md:text-5xl font-bold mt-6 text-white ${neonColors[colorIndex]}`} style={{ textShadow: '0 0 10px currentColor' }}>
+          <h1 className={`text-4xl md:text-5xl font-bold mt-6 text-white ${neonColors[colorIndex]}`} style={{ textShadow: '0 0 5px currentColor' }}>
             Sam French
           </h1>
           
           <h2 className="text-2xl font-medium mt-2 mb-4 text-cyan-100">
-            Director of Product at Token.io
+            {isDarkMode ? 'Full Stack Developer' : 'Director of Product at Token.io'}
           </h2>
           
           <p className="mb-6 text-indigo-100 max-w-xl mx-auto">
-            Building cutting-edge Account-to-Account payment solutions and leading product strategy across Open Banking initiatives.
+            {isDarkMode 
+              ? 'Building innovative SaaS solutions with modern web technologies. Passionate about clean code, user experience, and solving real-world problems through software.'
+              : 'Building cutting-edge Account-to-Account payment solutions and leading product strategy across Open Banking initiatives.'}
           </p>
           
           <div className="flex justify-center space-x-4 mb-6">
             <a 
               href="#contact" 
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-md hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+              className={`px-6 py-3 font-medium rounded-md transition-all duration-300 transform hover:-translate-y-1 shadow-lg ${
+                isDarkMode 
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:from-purple-700 hover:to-pink-600' 
+                  : 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600'
+              }`}
             >
               Get in Touch
             </a>
             <a 
               href="#projects" 
-              className="px-6 py-3 bg-transparent border-2 border-cyan-500 text-cyan-100 font-medium rounded-md hover:bg-cyan-500/20 transition-all duration-300 transform hover:-translate-y-1"
+              className={`px-6 py-3 bg-transparent border-2 font-medium rounded-md transition-all duration-300 transform hover:-translate-y-1 ${
+                isDarkMode 
+                  ? 'border-pink-500 text-pink-100 hover:bg-pink-500/20' 
+                  : 'border-cyan-500 text-cyan-100 hover:bg-cyan-500/20'
+              }`}
             >
-              View Projects
+              {isDarkMode ? 'View Code Projects' : 'View Projects'}
             </a>
           </div>
           
@@ -240,11 +265,7 @@ export default function AnimatedHeader() {
             </a>
           </div>
         </div>
-        
-        {/* Tech icon ring - removed as requested */}
       </div>
-      
-      {/* Social Links have been moved up below the buttons, removing this section */}
     </header>
   );
 }

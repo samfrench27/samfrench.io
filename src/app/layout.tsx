@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from '@/components/ThemeContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -28,20 +29,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.samfrench.io',
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png' }
-    ],
-    other: [
-      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/favicon-512x512.png', sizes: '512x512', type: 'image/png' }
-    ]
+    icon: '/favicon.ico',
   },
-  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -54,8 +43,13 @@ export default function RootLayout({
       <head>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
       </head>
-      
-      <body className={inter.className}>{children}<SpeedInsights /><Analytics /></body>
+      <body className={inter.className}>
+        <ThemeProvider>
+          {children}
+          <SpeedInsights />
+          <Analytics />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -322,3 +322,83 @@ body {
   stroke-dashoffset: 1000;
   animation: dataFlow 30s linear infinite;
 }
+
+/* Add these to globals.css */
+
+/* Day/Night Mode Variables */
+:root {
+  --day-primary: #1e40af; /* blue-800 */
+  --day-secondary: #0891b2; /* cyan-600 */
+  --day-accent: #06b6d4; /* cyan-500 */
+  --day-background: #f8fafc; /* slate-50 */
+  --day-text: #1f2937; /* gray-800 */
+  
+  --night-primary: #7e22ce; /* purple-700 */
+  --night-secondary: #db2777; /* pink-600 */
+  --night-accent: #f472b6; /* pink-400 */
+  --night-background: #0f172a; /* slate-900 */
+  --night-text: #e2e8f0; /* slate-200 */
+}
+
+body {
+  --primary: var(--day-primary);
+  --secondary: var(--day-secondary);
+  --accent: var(--day-accent);
+  --background: var(--day-background);
+  --text: var(--day-text);
+  
+  color: var(--text);
+  background-color: var(--background);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode {
+  --primary: var(--night-primary);
+  --secondary: var(--night-secondary);
+  --accent: var(--night-accent);
+  --background: var(--night-background);
+  --text: var(--night-text);
+}
+
+/* Night mode specific styles */
+.dark-mode .bg-white {
+  background-color: #1e293b; /* slate-800 */
+  color: #e2e8f0; /* slate-200 */
+}
+
+.dark-mode .text-gray-700 {
+  color: #cbd5e1; /* slate-300 */
+}
+
+.dark-mode .text-blue-900 {
+  color: #c4b5fd; /* violet-300 */
+}
+
+.dark-mode .bg-gray-50 {
+  background-color: #0f172a; /* slate-900 */
+}
+
+.dark-mode .bg-gray-100 {
+  background-color: #334155; /* slate-700 */
+}
+
+.dark-mode .shadow-lg,
+.dark-mode .shadow-xl,
+.dark-mode .shadow-md {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation for transition */
+.theme-transition {
+  transition: all 0.5s ease;
+}
+
+/* Terminal styling for night mode */
+.dark-mode .terminal-like {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #333;
+}
