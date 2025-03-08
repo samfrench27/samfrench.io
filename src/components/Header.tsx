@@ -5,9 +5,9 @@ import { FaEnvelope, FaLinkedin, FaGithub, FaCode, FaServer, FaDatabase } from '
 
 export default function AnimatedHeader() {
   const [scrolled, setScrolled] = useState(false);
-  const canvasRef = useRef(null);
-  const particlesRef = useRef([]);
-  const animationRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const particlesRef = useRef<any[]>([]);
+  const animationRef = useRef<number | null>(null);
   
   // Particle animation setup
   useEffect(() => {
@@ -15,15 +15,28 @@ export default function AnimatedHeader() {
     if (!canvas) return;
     
     const ctx = canvas.getContext('2d');
-    const particles = [];
+    if (!ctx) return;
+    
+    const particles: Array<{
+      x: number;
+      y: number;
+      radius: number;
+      color: string;
+      speedX: number;
+      speedY: number;
+      connected: number[];
+    }> = [];
     
     const resizeCanvas = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = 400; // Fixed height for header
     };
     
     const createParticles = () => {
       particles.length = 0;
+      if (!canvas) return;
+      
       const particleCount = Math.floor(window.innerWidth / 10); // Responsive particle count
       
       for (let i = 0; i < particleCount; i++) {
@@ -48,6 +61,8 @@ export default function AnimatedHeader() {
     };
     
     const drawParticles = () => {
+      if (!ctx || !canvas) return;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Update and draw particles
@@ -100,7 +115,9 @@ export default function AnimatedHeader() {
     // Cleanup
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationRef.current);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
   }, []);
   
@@ -131,23 +148,7 @@ export default function AnimatedHeader() {
     return () => clearInterval(interval);
   }, []);
   
-  // Matrix rain effect for the terminal section
-  const [terminalText, setTerminalText] = useState('');
-  const fullText = '$ whoami\n> Director of Product at Token.io\n$ skills --list\n> Open Banking, A2A Payments, Product Strategy\n$ current_project\n> Building next-gen financial infrastructure';
-  
-  useEffect(() => {
-    let index = 0;
-    const typingInterval = setInterval(() => {
-      setTerminalText(fullText.substring(0, index));
-      index++;
-      
-      if (index > fullText.length) {
-        clearInterval(typingInterval);
-      }
-    }, 50);
-    
-    return () => clearInterval(typingInterval);
-  }, []);
+  // Removing terminal text effect since we no longer have the terminal window
   
   return (
     <header className="relative overflow-hidden" style={{ height: '500px' }}>
@@ -158,9 +159,8 @@ export default function AnimatedHeader() {
         style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0891b2 100%)' }}
       />
       
-      {/* Tech-inspired decorative elements */}
+      {/* Tech-inspired decorative elements - removing the blue circle on left */}
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 left-10 w-40 h-40 border-4 border-cyan-500 rounded-full opacity-30 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-60 h-60 border-2 border-purple-500 rounded-full opacity-20 animate-pulse"></div>
         <div className="absolute top-1/4 right-1/3 w-20 h-20 bg-blue-500 opacity-10 animate-ping"></div>
         
@@ -170,11 +170,11 @@ export default function AnimatedHeader() {
         <div className="absolute top-1/2 left-1/4 h-16 w-0.5 bg-gradient-to-b from-transparent to-cyan-500"></div>
       </div>
       
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-between py-10">
-        {/* Profile section */}
-        <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center py-10">
+        {/* Centered profile section */}
+        <div className="text-center mb-8">
           <div className="relative inline-block">
-            <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1">
+            <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1 mx-auto">
               <Image 
                 src="/profile-photo.png" 
                 alt="Sam French"
@@ -185,9 +185,6 @@ export default function AnimatedHeader() {
               />
               <div className="absolute inset-0 rounded-full border-4 border-transparent hover:border-cyan-400 transition-all duration-300"></div>
             </div>
-            <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full animate-pulse">
-              Online
-            </div>
           </div>
           
           <h1 className={`text-4xl md:text-5xl font-bold mt-6 text-white ${neonColors[colorIndex]}`} style={{ textShadow: '0 0 10px currentColor' }}>
@@ -195,14 +192,14 @@ export default function AnimatedHeader() {
           </h1>
           
           <h2 className="text-2xl font-medium mt-2 mb-4 text-cyan-100">
-            Director of Product <span className="hidden md:inline">at Token.io</span>
+            Director of Product at Token.io
           </h2>
           
-          <p className="mb-6 text-indigo-100 max-w-lg">
+          <p className="mb-6 text-indigo-100 max-w-xl mx-auto">
             Building cutting-edge Account-to-Account payment solutions and leading product strategy across Open Banking initiatives.
           </p>
           
-          <div className="flex justify-center md:justify-start space-x-4">
+          <div className="flex justify-center space-x-4 mb-6">
             <a 
               href="#contact" 
               className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-md hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
@@ -216,65 +213,38 @@ export default function AnimatedHeader() {
               View Projects
             </a>
           </div>
+          
+          {/* Social Links moved up below buttons */}
+          <div className="flex justify-center space-x-6">
+            <a 
+              href="mailto:sam@samfrench.io" 
+              className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
+            >
+              <FaEnvelope className="text-2xl" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/sam-french-359b74a8/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
+            >
+              <FaLinkedin className="text-2xl" />
+            </a>
+            <a 
+              href="https://github.com/samfrench27" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
+            >
+              <FaGithub className="text-2xl" />
+            </a>
+          </div>
         </div>
         
-        {/* Terminal section */}
-        <div className="md:w-1/2 w-full max-w-md">
-          <div className="bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-gray-700">
-            <div className="flex items-center px-4 py-2 bg-gray-800">
-              <div className="flex space-x-2 mr-4">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="text-gray-400 text-sm">sam@token-io ~ %</div>
-            </div>
-            <div className="p-6 font-mono text-sm h-64 overflow-hidden">
-              <div className="text-green-400 whitespace-pre-line">{terminalText}</div>
-              <div className="inline-block w-2 h-5 bg-green-400 ml-1 animate-pulse"></div>
-            </div>
-          </div>
-          
-          {/* Tech icon ring */}
-          <div className="flex justify-center mt-6 space-x-6">
-            <div className="p-3 bg-blue-800 text-white rounded-full animate-bounce shadow-lg">
-              <FaCode className="text-xl" />
-            </div>
-            <div className="p-3 bg-purple-700 text-white rounded-full animate-bounce shadow-lg" style={{ animationDelay: '0.2s' }}>
-              <FaServer className="text-xl" />
-            </div>
-            <div className="p-3 bg-cyan-600 text-white rounded-full animate-bounce shadow-lg" style={{ animationDelay: "0.4s" }}>
-              <FaDatabase className="text-xl" />
-            </div>
-          </div>
-        </div>
+        {/* Tech icon ring - removed as requested */}
       </div>
       
-      {/* Social Links */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-6 z-10">
-        <a 
-          href="mailto:sam@samfrench.io" 
-          className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
-        >
-          <FaEnvelope className="text-2xl" />
-        </a>
-        <a 
-          href="https://www.linkedin.com/in/sam-french-359b74a8/" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
-        >
-          <FaLinkedin className="text-2xl" />
-        </a>
-        <a 
-          href="https://github.com/samfrench27" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
-        >
-          <FaGithub className="text-2xl" />
-        </a>
-      </div>
+      {/* Social Links have been moved up below the buttons, removing this section */}
     </header>
   );
 }

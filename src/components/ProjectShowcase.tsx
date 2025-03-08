@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ProjectShowcase = () => {
-  const [activeProject, setActiveProject] = useState<string | null>(null);
+  // Disabling the activeProject functionality temporarily
+  // const [activeProject, setActiveProject] = useState<string | null>(null);
   
   const projects = [
     {
@@ -64,9 +65,9 @@ const ProjectShowcase = () => {
         {projects.map((project) => (
           <motion.div
             key={project.id}
-            className={`bg-white rounded-lg shadow-md overflow-hidden cursor-pointer border-t-4 ${project.color} ${activeProject === project.id ? 'ring-2 ring-blue-400' : ''}`}
+            className={`bg-white rounded-lg shadow-md overflow-hidden cursor-pointer border-t-4 ${project.color}`}
             whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-            onClick={() => setActiveProject(activeProject === project.id ? null : project.id)}
+            // onClick={() => setActiveProject(activeProject === project.id ? null : project.id)}
           >
             <div className="p-6">
               <div className="text-4xl mb-4">{project.icon}</div>
@@ -90,20 +91,16 @@ const ProjectShowcase = () => {
               </div>
               
               <button
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  activeProject === project.id 
-                    ? 'bg-gray-200 text-gray-700' 
-                    : `text-white ${project.color}`
-                }`}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors text-white ${project.color}`}
               >
-                {activeProject === project.id ? 'Show Less' : 'Learn More'}
+                Learn More
               </button>
             </div>
           </motion.div>
         ))}
       </div>
       
-      {/* Expanded project details */}
+      {/* Temporarily commenting out expanded project details section
       {activeProject && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -162,6 +159,7 @@ const ProjectShowcase = () => {
           ))}
         </motion.div>
       )}
+      */}
     </div>
   );
 };
