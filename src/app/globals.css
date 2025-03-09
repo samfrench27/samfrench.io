@@ -402,3 +402,32 @@ body.dark-mode {
   border-radius: 0.5rem;
   border: 1px solid #333;
 }
+
+/* Add this to your globals.css file */
+
+/* Custom logo sizing */
+.barclays-logo {
+  height: 3rem !important; /* Increase height */
+  width: auto !important; /* Let width adjust proportionally */
+  transform: scale(1.5); /* Scale it up */
+  margin: 0 1rem; /* Add extra margin */
+}
+
+/* Add some extra spacing for the company banner */
+.company-banner {
+  padding: 1.5rem 0;
+}
+
+.company-banner .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .barclays-logo {
+    transform: scale(1.3);
+    margin: 0 0.5rem;
+  }
+}

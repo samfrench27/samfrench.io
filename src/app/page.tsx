@@ -1,8 +1,10 @@
+// src/app/page.tsx update
 "use client";
 import { useTheme } from '@/components/ThemeContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import CompanyBanner from '@/components/CompanyBanner';
 import InteractiveJourney from '@/components/InteractiveJourney';
 import ProjectShowcase from '@/components/ProjectShowcase';
 import SkillRadarChart from '@/components/SkillRadarChart';
@@ -18,6 +20,7 @@ export default function Home() {
   return (
     <main className={`transition-colors duration-500 ${isDarkMode ? 'bg-gradient-to-b from-gray-900 to-slate-800' : 'bg-gradient-to-b from-white to-gray-50'}`}>
       <Header />
+      {!isDarkMode && <CompanyBanner />}
       <Hero />
       
       {isDarkMode ? (
