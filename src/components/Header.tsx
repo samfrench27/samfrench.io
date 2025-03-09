@@ -159,10 +159,7 @@ export default function AnimatedHeader() {
   }, [neonColors.length]);
   
   return (
-    <header className="relative overflow-hidden" style={{ height: '500px' }}>
-      {/* Theme Toggle Button */}
-      <ThemeToggle onModeChange={setIsDarkMode} />
-      
+    <header className="relative overflow-hidden" style={{ height: '550px' }}>
       {/* Particle animation canvas */}
       <canvas 
         ref={canvasRef}
@@ -185,10 +182,10 @@ export default function AnimatedHeader() {
         <div className="absolute top-1/2 left-1/4 h-16 w-0.5 bg-gradient-to-b from-transparent to-cyan-500"></div>
       </div>
       
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center py-10">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center py-12 mt-10">
         {/* Centered profile section */}
-        <div className="text-center mb-8">
-          <div className="relative inline-block">
+        <div className="text-center mb-4">
+          <div className="relative inline-block mt-4">
             <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1 mx-auto">
               <Image 
                 src="/profile-photo.png"
@@ -201,6 +198,9 @@ export default function AnimatedHeader() {
               <div className="absolute inset-0 rounded-full border-4 border-transparent hover:border-cyan-400 transition-all duration-300"></div>
             </div>
           </div>
+          <div className="mt-4 flex justify-center w-full">
+  <ThemeToggle onModeChange={setIsDarkMode} />
+</div>
           
           <h1 className={`text-4xl md:text-5xl font-bold mt-6 text-white ${neonColors[colorIndex]}`} style={{ textShadow: '0 0 5px currentColor' }}>
             Sam French
@@ -212,8 +212,8 @@ export default function AnimatedHeader() {
           
           <p className="mb-6 text-indigo-100 max-w-xl mx-auto">
             {isDarkMode 
-              ? 'Building innovative SaaS solutions with modern web technologies. Passionate about clean code, user experience, and solving real-world problems through software.'
-              : 'Building cutting-edge Account-to-Account payment solutions and leading product strategy across Open Banking initiatives.'}
+              ? 'Building innovative SaaS solutions with modern web technologies.'
+              : 'Building cutting-edge Account-to-Account payment solutions.'}
           </p>
           
           <div className="flex justify-center space-x-4 mb-6">
@@ -240,7 +240,7 @@ export default function AnimatedHeader() {
           </div>
           
           {/* Social Links moved up below buttons */}
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center space-x-6 mb-8">
             <a 
               href="mailto:sam@samfrench.io" 
               className="text-white hover:text-cyan-300 transition-colors duration-300 transform hover:scale-125"
