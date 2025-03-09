@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const InteractiveJourney = () => {
   const [activeCard, setActiveCard] = useState<string | null>(null);
@@ -9,6 +10,8 @@ const InteractiveJourney = () => {
     {
       id: 'token',
       title: 'Token.io',
+      logoSrc: '/logos/token-io.svg',
+      logoAlt: 'Token.io logo',
       role: 'Director of Product',
       period: '2022 - Present',
       color: 'bg-blue-600',
@@ -17,12 +20,14 @@ const InteractiveJourney = () => {
         'Partnered with Tier 1 Financial Institution to launch first commercial VRP agreement',
         'Led market expansion across 7+ European countries',
         'Improved payment conversion to 80% and success rate to 95%',
-        'Generated £1.2mn in Annual Recurring Revenue'
+        
       ]
     },
     {
       id: 'evelyn',
       title: 'Evelyn Partners',
+      logoSrc: '/logos/bestinvest.svg',
+      logoAlt: 'BestInvest logo',
       role: 'Product Lead, Shared Services',
       period: '2021 - 2022',
       color: 'bg-purple-600',
@@ -36,6 +41,8 @@ const InteractiveJourney = () => {
     {
       id: 'auden',
       title: 'Auden',
+      logoSrc: '/logos/auden.svg',
+      logoAlt: 'Auden logo',
       role: 'Product Delivery Manager',
       period: '2021',
       color: 'bg-teal-600',
@@ -49,6 +56,8 @@ const InteractiveJourney = () => {
     {
       id: 'barclays',
       title: 'Barclays',
+      logoSrc: '/logos/barclays.svg',
+      logoAlt: 'Barclays logo',
       role: 'Project Manager, Open Banking & Strategic Partnerships',
       period: '2017 - 2020',
       color: 'bg-indigo-600',
@@ -86,11 +95,22 @@ const InteractiveJourney = () => {
               {/* Content Card */}
               <div className={`ml-12 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                 <motion.div 
-                  className={`bg-white p-6 rounded-lg shadow-md border-l-4 ${step.color} cursor-pointer`}
+                  className={`bg-white p-6 rounded-lg shadow-md border-l-4 ${step.color} cursor-pointer relative`}
                   whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
                   onClick={() => setActiveCard(activeCard === step.id ? null : step.id)}
                 >
-                  <h3 className="text-xl font-bold text-blue-900">{step.title}</h3>
+                  {/* Company Logo */}
+                  <div className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center">
+                    <Image 
+                      src={step.logoSrc}
+                      alt={step.logoAlt}
+                      width={48}
+                      height={48}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-blue-900 pr-14">{step.title}</h3>
                   <h4 className="text-lg font-medium text-blue-600 mb-1">{step.role}</h4>
                   <div className="text-sm text-gray-500 mb-2">{step.period}</div>
                   

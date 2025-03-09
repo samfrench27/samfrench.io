@@ -6,7 +6,7 @@ export default function About() {
     <section className="py-20 bg-white" aria-labelledby="about-heading">
       <div className="container mx-auto px-4">
         <h2 id="about-heading" className="text-3xl font-bold text-center text-blue-900 mb-12 relative">
-          About Sam French - Product Leader in Manchester
+          About
           <span className="block w-20 h-1 bg-cyan-500 mx-auto mt-4"></span>
         </h2>
         

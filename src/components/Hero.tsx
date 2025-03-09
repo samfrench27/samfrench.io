@@ -13,20 +13,7 @@ export default function Hero() {
 
 I am passionate about growing and developing high performing teams in fast paced engineering environments; taking innovative digital products and solutions from ideation to market. I have a track record developing products used by millions of customers, forming synergistic alliances with both Tier 1 Financial institutions and big Tech companies; whilst maintaining a commercial focus on P&L and business development. 
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a 
-              href="#contact" 
-              className="px-6 py-3 bg-blue-900 text-white font-medium rounded-md hover:bg-blue-800 transition-colors shadow-md"
-            >
-              Get in Touch
-            </a>
-            <a 
-              href="#projects" 
-              className="px-6 py-3 border-2 border-cyan-500 text-cyan-600 font-medium rounded-md hover:bg-cyan-500 hover:text-white transition-colors"
-            >
-              View My Projects
-            </a>
-          </div>
+          
           
           {/* Terminal-inspired element */}
           <div className="w-full max-w-4xl bg-gray-900 rounded-lg overflow-hidden shadow-xl">
