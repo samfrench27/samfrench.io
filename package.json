@@ -12,6 +12,7 @@
     "@sendgrid/mail": "^8.1.4",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "critters": "^0.0.25",
     "framer-motion": "^12.4.10",
     "next": "15.2.1",
     "next-sitemap": "^4.2.3",
