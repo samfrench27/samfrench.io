@@ -2,7 +2,7 @@ import React from 'react';
 import Script from 'next/script';
 
 export default function StructuredData() {
-  const structuredData = {
+  const personData = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Sam French",
@@ -10,16 +10,16 @@ export default function StructuredData() {
     "image": "https://www.samfrench.io/profile-photo.png",
     "sameAs": [
       "https://www.linkedin.com/in/sam-french-359b74a8/",
-      "https://twitter.com/",
-      "https://medium.com/"
+      "https://github.com/samfrench27"
     ],
-    "jobTitle": "Director of Product",
+    "jobTitle": ["Director of Product", "Full Stack Developer"],
     "worksFor": {
       "@type": "Organization",
       "name": "Token.io",
-      "url": "https://token.io"
+      "url": "https://token.io",
+      "description": "Open Banking payments platform enabling Account-to-Account transfers"
     },
-    "description": "Director of Product at Token.io specializing in Account-to-Account payments and Open Banking data products.",
+    "description": "Open Banking expert and full stack developer specializing in payment technology and fintech solutions.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Manchester",
@@ -35,18 +35,75 @@ export default function StructuredData() {
       "Open Banking",
       "Payment Technology",
       "Variable Recurring Payments",
-      "Product Strategy",
-      "Product Leadership",
-      "FinTech",
-      "Financial Services"
+      "Full Stack Development",
+      "React.js",
+      "Node.js",
+      "JavaScript",
+      "TypeScript",
+      "Financial Technology"
+    ],
+    "hasSkill": [
+      "Open Banking",
+      "A2A Payments",
+      "React",
+      "Node.js",
+      "JavaScript",
+      "TypeScript",
+      "NextJS",
+      "Payment Systems",
+      "API Design",
+      "Product Leadership"
     ]
   };
 
+  const professionalService = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Sam French - Open Banking & Development",
+    "description": "Expert in Open Banking technology, Account-to-Account payments and full stack development for financial services.",
+    "url": "https://www.samfrench.io",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manchester",
+      "addressRegion": "England",
+      "addressCountry": "UK"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Professional Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Open Banking Consulting",
+            "description": "Strategic guidance on implementing Open Banking payment and data solutions"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Full Stack Development",
+            "description": "Development of fintech applications using React, Node.js, and modern web technologies"
+          }
+        }
+      ]
+    }
+  };
+
   return (
-    <Script
-      id="structured-data"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
+    <>
+      <Script
+        id="structured-data-person"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
+      />
+      <Script
+        id="structured-data-service"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalService) }}
+      />
+    </>
   );
 }
