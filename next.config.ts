@@ -1,42 +1,60 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    // This disables ESLint during production builds
     ignoreDuringBuilds: true,
   },
-  
-  // Common Next.js config options you might want
   reactStrictMode: true,
   
-  // If you're using image optimization
+  // Image optimization
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
   },
   
-  // For custom redirects if needed
-  async redirects() {
-    return [];
-  },
-
-  // For custom headers if needed
+  // Add HTTP headers for performance & security
   async headers() {
-    return [];
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          }
+        ],
+      },
+      {
+        // Cache static assets aggressively
+        source: '/(.*).(jpg|jpeg|png|svg|webp|ico|css|js)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
-
-  // Uncomment if using Next.js output standalone
-  // output: 'standalone',
   
-  // For experimental features
+  // Optimize output
+  output: 'standalone',
+  
+  // Add compression
+  compress: true,
+  
+  // Experimental features for performance
   experimental: {
-    // Optional: Enable app directory features if using them
-    // appDir: true,
-  },
-  
-  // For webpack customization if needed
-  webpack: (config: any, {  }) => {
-    // Make any custom webpack configurations here
-    return config;
+    optimizeCss: true,
+    scrollRestoration: true,
   },
 };
 

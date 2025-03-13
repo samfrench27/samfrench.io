@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.samfrench.io'),
-  title: 'Sam French | Open Banking Expert & Full Stack Developer',
-  description: 'Fintech specialist with expertise in Open Banking, Account-to-Account payments, and full stack development using React, Node.js, and modern web technologies.',
+  title: 'Sam French | Fintech Product Leader & SaaS Developer | Open Banking Specialist',
+  description: 'Fintech specialist with expertise in Open Banking, Account-to-Account payments, SaaS development, and product leadership for financial technology solutions.',
   keywords: [
     'Open Banking', 'Fintech', 'Payment Technology', 'Full Stack Developer', 
     'React Developer', 'Node.js Developer', 'JavaScript', 'TypeScript',
@@ -106,8 +106,15 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preload" href="/profile-photo.png" as="image" />
+        <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="theme-color" content="#1e40af" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body className={inter.className}>
         <ThemeProvider>

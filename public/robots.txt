@@ -1,6 +1,13 @@
-# Allow all crawlers
+# Allow all web crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Specify crawl-delay for intensive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Specify sitemap location
 Sitemap: https://www.samfrench.io/sitemap.xml

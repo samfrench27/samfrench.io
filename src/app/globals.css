@@ -431,3 +431,41 @@ body.dark-mode {
     margin: 0 0.5rem;
   }
 }
+
+/* Mobile tap target improvements */
+@media (max-width: 768px) {
+  a, button, [role="button"], input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  nav a, footer a {
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem;
+  }
+  
+  .nav-link::after {
+    height: 3px; /* Make tap targets more visible */
+  }
+}
+
+/* Ensure readable font sizes on mobile */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Add smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}

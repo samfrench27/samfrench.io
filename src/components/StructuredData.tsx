@@ -92,18 +92,60 @@ export default function StructuredData() {
     }
   };
 
-  return (
-    <>
-      <Script
-        id="structured-data-person"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
-      />
-      <Script
-        id="structured-data-service"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalService) }}
-      />
-    </>
-  );
-}
+     const breadcrumbData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.samfrench.io"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.samfrench.io/#about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Experience",
+          "item": "https://www.samfrench.io/#experience"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Projects",
+          "item": "https://www.samfrench.io/#projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Contact",
+          "item": "https://www.samfrench.io/#contact"
+        }
+      ]
+    };
+  
+    return (
+      <>
+        <Script
+          id="structured-data-person"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
+        />
+        <Script
+          id="structured-data-service"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalService) }}
+        />
+        <Script
+          id="structured-data-breadcrumbs"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+        />
+      </>
+    );
+  }
