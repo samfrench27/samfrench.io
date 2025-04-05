@@ -1,18 +1,11 @@
 "use client";
 
 import React from 'react';
-import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useTheme } from '@/components/ThemeContext';
-
-// This metadata would be in the proper static metadata.ts file in a production environment
-export const metadata = {
-  title: 'About Sam French | Token.io Product Director | Fintech Expert',
-  description: 'Learn about Sam French, Director of Product at Token.io with expertise in Open Banking, Account-to-Account payments, and fintech solutions. Based in Manchester, UK.',
-};
 
 export default function AboutPage() {
   const { isDarkMode } = useTheme();

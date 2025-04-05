@@ -224,7 +224,7 @@ export default function StructuredData() {
       "cssSelector": ".container"
     },
     "datePublished": "2023-01-01T00:00:00+00:00",
-    "dateModified": new Date().toISOString()
+    "dateModified": "2024-03-01T00:00:00+00:00"
   };
   
   // Organization schema for local Manchester presence - new

@@ -140,7 +140,7 @@ export default function RootLayout({
         <meta name="twitter:data1" content="Sam French" />
         <meta name="twitter:label2" content="Expertise" />
         <meta name="twitter:data2" content="Open Banking, Fintech, Account-to-Account Payments" />
-        <meta property="article:modified_time" content={new Date().toISOString()} />
+        <meta property="article:modified_time" content="2024-03-01T00:00:00+00:00" />
         <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
