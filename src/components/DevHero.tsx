@@ -71,17 +71,15 @@ export default function Hero() {
               By night, I'm a passionate full stack developer building SaaS products and open-source projects.
             </p>
             
-            <div className="terminal-like mb-8 p-4 bg-gray-900 text-green-400 font-mono rounded shadow-md overflow-hidden">
-              <div className="mb-2">$ whoami</div>
-              <div className="ml-4 mb-2">Full Stack Developer with expertise in React, Next.js, Node.js, and TypeScript</div>
-              <div className="mb-2">$ ls -la projects/</div>
-              <div className="ml-4 mb-4">
-                <div>drwxr-xr-x SaaS-Starter - A starter kit for SaaS applications</div>
-                <div>drwxr-xr-x API-Gateway - A custom API gateway for microservices</div>
-                <div>drwxr-xr-x React-Components - A library of reusable React components</div>
-              </div>
-              <div className="animate-blink inline-block w-2 h-4 bg-green-400 ml-1"></div>
-            </div>
+            <p className="text-xl text-gray-700 mb-8">
+              I specialize in developing web applications using React, Next.js, Node.js, and TypeScript.
+              My focus is on creating scalable, maintainable code with modern practices and tools.
+            </p>
+            
+            <p className="text-xl text-gray-700 mb-8">
+              My projects include a SaaS starter kit, custom API gateway solutions, and reusable
+              component libraries that emphasize performance and user experience.
+            </p>
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">

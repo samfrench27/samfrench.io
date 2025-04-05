@@ -11,13 +11,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.samfrench.io'),
-  title: 'Sam French | Fintech Product Leader & SaaS Developer | Open Banking Specialist',
-  description: 'Fintech specialist with expertise in Open Banking, Account-to-Account payments, SaaS development, and product leadership for financial technology solutions.',
+  title: 'Sam French | Token.io Product Director | Fintech & Open Banking Expert',
+  description: 'Sam French, Director of Product at Token.io specializing in Open Banking, Account-to-Account payments, and fintech solutions. Based in Manchester, UK with expertise in payment technology and financial services.',
   keywords: [
-    'Open Banking', 'Fintech', 'Payment Technology', 'Full Stack Developer', 
-    'React Developer', 'Node.js Developer', 'JavaScript', 'TypeScript',
+    'Sam French Token', 'Sam French Fintech', 'Sam French Token.io', 
+    'Open Banking', 'Fintech', 'Payment Technology', 'Token.io Product Director',
     'Account-to-Account Payments', 'A2A Payments', 'Open Banking API', 
-    'Payment Solutions', 'Financial Services Technology'
+    'Payment Solutions', 'Financial Services Technology', 'Manchester Fintech',
+    'Token.io', 'Sam French Manchester', 'VRP payments', 'Variable Recurring Payments'
   ],
   authors: [{ name: 'Sam French', url: 'https://www.samfrench.io' }],
   creator: 'Sam French',
@@ -28,27 +29,27 @@ export const metadata: Metadata = {
     telephone: true,
   },
   openGraph: {
-    title: 'Sam French | Open Banking Expert & Full Stack Developer',
-    description: 'Fintech specialist with expertise in Open Banking and full stack development for financial services technology.',
+    title: 'Sam French | Token.io Product Director | Fintech & Open Banking Expert',
+    description: 'Sam French, Director of Product at Token.io. Leading Account-to-Account payment solutions and Open Banking connectivity across EMEA. Manchester-based fintech professional with expertise in payment technology.',
     url: 'https://www.samfrench.io',
-    siteName: 'Sam French - Tech & Finance Professional',
+    siteName: 'Sam French - Fintech & Open Banking Professional',
     locale: 'en_GB',
-    type: 'website',
+    type: 'profile',
     images: [
       {
-        url: 'https://www.samfrench.io/profile-photo.png', // Using existing profile photo
-        width: 500, // Adjust based on your actual image dimensions
-        height: 500, // Adjust based on your actual image dimensions
-        alt: 'Sam French - Open Banking Expert & Developer'
+        url: 'https://www.samfrench.io/profile-photo.png',
+        width: 500,
+        height: 500,
+        alt: 'Sam French - Token.io Product Director'
       }
     ]
   },
   twitter: {
-    card: 'summary', // Changed to summary since we're using a profile photo
-    title: 'Sam French | Open Banking Expert & Full Stack Developer',
-    description: 'Open Banking technology expert and full stack developer specializing in fintech applications and payment systems.',
+    card: 'summary',
+    title: 'Sam French | Token.io Product Director | Fintech Expert',
+    description: 'Director of Product at Token.io, leading Account-to-Account payment solutions. Open Banking expert specializing in fintech and payment technology.',
     creator: '@samfrench',
-    images: ['https://www.samfrench.io/profile-photo.png'], // Using existing profile photo
+    images: ['https://www.samfrench.io/profile-photo.png'],
   },
   alternates: {
     canonical: 'https://www.samfrench.io',
@@ -94,7 +95,13 @@ export const metadata: Metadata = {
     ]
   },
   manifest: '/site.webmanifest',
-  category: 'technology',
+  category: 'finance',
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  other: {
+    'google-site-verification': 'your-google-verification-code'
+  }
 };
 
 export default function RootLayout({
@@ -115,6 +122,27 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
+        <meta property="og:site_name" content="Sam French | Token.io Product Director" />
+        <meta property="profile:first_name" content="Sam" />
+        <meta property="profile:last_name" content="French" />
+        <meta property="profile:username" content="samfrench" />
+        <meta property="profile:gender" content="male" />
+        
+        {/* Technical SEO enhancements */}
+        <link rel="canonical" href="https://www.samfrench.io" />
+        <meta name="geo.region" content="GB-MAN" />
+        <meta name="geo.placename" content="Manchester" />
+        <meta name="geo.position" content="53.4808;-2.2426" />
+        <meta name="ICBM" content="53.4808, -2.2426" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="Sam French" />
+        <meta name="twitter:label2" content="Expertise" />
+        <meta name="twitter:data2" content="Open Banking, Fintech, Account-to-Account Payments" />
+        <meta property="article:modified_time" content={new Date().toISOString()} />
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
       <body className={inter.className}>
         <ThemeProvider>

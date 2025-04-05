@@ -1,5 +1,28 @@
-# Allow all web crawlers
+# *
 User-agent: *
+Allow: /
+
+# Host
+Host: https://www.samfrench.io
+
+# Sitemaps
+Sitemap: https://www.samfrench.io/sitemap.xml
+
+# Google Image
+User-agent: Googlebot-Image
+Allow: /profile-photo.png
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.gif
+
+# Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Google Search
+User-agent: Googlebot
 Allow: /
 
 # Specify crawl-delay for intensive crawlers
@@ -8,6 +31,3 @@ Crawl-delay: 10
 
 User-agent: MJ12bot
 Crawl-delay: 10
-
-# Specify sitemap location
-Sitemap: https://www.samfrench.io/sitemap.xml

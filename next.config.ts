@@ -45,6 +45,34 @@ const nextConfig = {
     ]
   },
   
+  // Add redirects to canonicalize your domain
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'samfrench.io',
+          },
+        ],
+        destination: 'https://www.samfrench.io/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'samfrench.io',
+          },
+        ],
+        destination: 'https://www.samfrench.io/:path*',
+        permanent: true,
+      }
+    ];
+  },
+  
   // Optimize output
   output: 'standalone',
   
@@ -53,7 +81,6 @@ const nextConfig = {
   
   // Experimental features for performance
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
   },
 };

@@ -191,27 +191,20 @@ body {
 
 /* Floating animation for tech icons */
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.float {
+.animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
 .float-delay-1 {
-  animation: float 3s ease-in-out 0.5s infinite;
+  animation-delay: 0.5s;
 }
 
 .float-delay-2 {
-  animation: float 3s ease-in-out 1s infinite;
+  animation-delay: 1s;
 }
 
 /* Glowing border animation */
@@ -468,4 +461,203 @@ body.dark-mode {
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+}
+
+/* Terminal animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.float-delay-2 {
+  animation-delay: 1s;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: 
+    typewriter 3s steps(40, end),
+    blink 1s step-end infinite;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+/* Terminal window styling */
+.terminal-window {
+  background-color: #000;
+  color: #33ff33;
+  font-family: 'Courier New', monospace;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+  background-color: #333;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-close {
+  background-color: #ff5f56;
+}
+
+.terminal-minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-maximize {
+  background-color: #27c93f;
+}
+
+.terminal-body {
+  padding: 16px;
+  min-height: 300px;
+  line-height: 1.5;
+}
+
+.terminal-prompt::before {
+  content: "$ ";
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: #33ff33;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+/* Terminal transition */
+.terminal-fade-out {
+  animation: fadeOut 1.2s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+.main-content-fade-in {
+  animation: fadeIn 1s forwards, slideUp 1.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.terminal-success-message {
+  color: #33ff33;
+  text-shadow: 0 0 5px rgba(51, 255, 51, 0.7);
+}
+
+/* Improve terminal text styling */
+.terminal-body {
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+  text-shadow: 0 0 2px rgba(51, 255, 51, 0.5);
+  scroll-behavior: smooth;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 20px;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.pulse-text {
+  animation: pulse 2s infinite;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: 
+    typewriter 3s steps(40, end),
+    blink 1s step-end infinite;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: #33ff33;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
 }
