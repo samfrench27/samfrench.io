@@ -7,7 +7,7 @@ export default function StructuredData() {
     "@type": "Person",
     "name": "Sam French",
     "url": "https://www.samfrench.io",
-    "image": "https://www.samfrench.io/profile-photo.png",
+    "image": "https://www.samfrench.io/samfrench.jpg",
     "sameAs": [
       "https://www.linkedin.com/in/sam-french-359b74a8/",
       "https://github.com/samfrench27"

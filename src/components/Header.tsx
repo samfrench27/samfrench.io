@@ -187,7 +187,7 @@ export default function AnimatedHeader() {
           <div className="relative inline-block mt-4">
             <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1 mx-auto">
               <Image 
-                src="/profile-photo.png"
+                src="/samfrench.jpg"
                 alt="Sam French"
                 fill
                 style={{ objectFit: 'cover' }}
