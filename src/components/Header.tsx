@@ -174,7 +174,6 @@ export default function AnimatedHeader() {
       {/* Tech-inspired decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden">
         <div className="absolute bottom-20 right-10 w-60 h-60 border-2 border-purple-500 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute top-1/4 right-1/3 w-20 h-20 bg-blue-500 opacity-10 animate-ping"></div>
         
         {/* Circuit-like lines */}
         <div className="absolute top-1/4 left-0 w-1/3 h-0.5 bg-gradient-to-r from-transparent to-blue-500"></div>
