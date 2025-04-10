@@ -185,12 +185,12 @@ export default function AnimatedHeader() {
         {/* Centered profile section */}
         <div className="text-center mb-4">
           <div className="relative inline-block mt-4">
-            <div className="w-40 h-40 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1 mx-auto">
+            <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden relative shadow-xl bg-white p-1 mx-auto">
               <Image 
-                src="/samfrench.jpg"
+                src="/profile-photo.png"
                 alt="Sam French"
                 fill
-                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                style={{ objectFit: 'cover' }}
                 priority
                 className="rounded-full"
               />

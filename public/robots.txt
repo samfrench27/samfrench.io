@@ -10,7 +10,7 @@ Sitemap: https://www.samfrench.io/sitemap.xml
 
 # Google Image
 User-agent: Googlebot-Image
-Allow: /samfrench.jpg
+Allow: /profile-photo.png
 Allow: /*.jpg
 Allow: /*.png
 Allow: /*.svg

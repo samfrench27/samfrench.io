@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: 'profile',
     images: [
       {
-        url: 'https://www.samfrench.io/samfrench.jpg',
+        url: 'https://www.samfrench.io/profile-photo.png',
         width: 500,
         height: 500,
         alt: 'Sam French - Token.io Product Director'
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: 'Sam French | Token.io Product Director | Fintech Expert',
     description: 'Director of Product at Token.io, leading Account-to-Account payment solutions. Open Banking expert specializing in fintech and payment technology.',
     creator: '@samfrench',
-    images: ['https://www.samfrench.io/samfrench.jpg'],
+    images: ['https://www.samfrench.io/profile-photo.png'],
   },
   alternates: {
     canonical: 'https://www.samfrench.io',
@@ -114,7 +114,7 @@ export default function RootLayout({
       <head>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-        <link rel="preload" href="/samfrench.jpg" as="image" />
+        <link rel="preload" href="/profile-photo.png" as="image" />
         <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <meta name="theme-color" content="#1e40af" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
