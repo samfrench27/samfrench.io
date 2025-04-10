@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaGitAlt, FaDocker, FaAws } from 'react-icons/fa';
-import { SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiMongodb, SiPostgresql, SiRedis, SiGraphql, SiNestjs } from 'react-icons/si';
+import { SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiMongodb, SiPostgresql, SiRedis, SiGraphql, SiExpress } from 'react-icons/si';
 
 const DevSkills = () => {
   const skillCategories = [
@@ -20,7 +20,7 @@ const DevSkills = () => {
       name: "Backend",
       skills: [
         { name: "Node.js", icon: <FaNodeJs className="text-green-500" />, level: 90 },
-        { name: "NestJS", icon: <SiNestjs className="text-red-500" />, level: 80 },
+        { name: "Express.js", icon: <SiExpress className="text-gray-300" />, level: 85 },
         { name: "GraphQL", icon: <SiGraphql className="text-pink-600" />, level: 85 },
         { name: "REST APIs", icon: null, level: 95 }
       ]
