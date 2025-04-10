@@ -23,14 +23,6 @@ export default function Home() {
   const [terminalExiting, setTerminalExiting] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
-  // Clear localStorage in development for testing
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      // Uncomment this line to always show the terminal in development
-      // localStorage.removeItem('visited');
-    }
-  }, []);
-
   // Function to handle terminal completion
   const handleTerminalComplete = () => {
     // Start the exit animation for the terminal
@@ -40,13 +32,6 @@ export default function Home() {
     setTimeout(() => {
       setShowTerminal(false);
       setShowContent(true);
-      
-      // Mark as visited for future navigations
-      try {
-        localStorage.setItem('visited', 'true');
-      } catch (e) {
-        console.error('Error setting localStorage', e);
-      }
     }, 1200);
   };
 
@@ -54,23 +39,9 @@ export default function Home() {
   useEffect(() => {
     if (initialized) return;
     
-    let hasVisited = false;
-    
-    try {
-      hasVisited = localStorage.getItem('visited') === 'true';
-    } catch (e) {
-      console.error('Error accessing localStorage', e);
-    }
-    
-    if (hasVisited) {
-      // Skip the terminal animation if already visited
-      setShowTerminal(false);
-      setShowContent(true);
-    } else {
-      // First visit, show terminal
-      setShowTerminal(true);
-      setShowContent(false);
-    }
+    // Always show terminal on load
+    setShowTerminal(true);
+    setShowContent(false);
     
     setInitialized(true);
   }, [initialized]);

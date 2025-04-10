@@ -148,6 +148,12 @@ export default function TerminalStartup({
     setExecutionLineIndex(0);
   }, []);
   
+  // Skip animation handler
+  const handleSkip = useCallback(() => {
+    // Skip the rest of the animation and trigger completion
+    onComplete();
+  }, [onComplete]);
+  
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black ${animationComplete ? 'terminal-fade-out' : 'fade-in'}`}>
       <div className="terminal-window w-full max-w-4xl h-3/4 shadow-2xl overflow-hidden flex flex-col">
@@ -203,9 +209,17 @@ export default function TerminalStartup({
             </div>
           )}
           
-          {/* Reassurance message at the bottom */}
-          <div className="mt-4 text-sm text-gray-500">
-            This is just a creative way to showcase my portfolio. No files are being downloaded.
+          {/* Skip button and reassurance message */}
+          <div className="mt-6 text-center">
+            <button 
+              onClick={handleSkip}
+              className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded transition-colors duration-300"
+            >
+              Skip to Website →
+            </button>
+            <div className="mt-4 text-sm text-gray-500">
+              This is just a creative way to showcase my portfolio. No files are being downloaded.
+            </div>
           </div>
         </div>
       </div>
