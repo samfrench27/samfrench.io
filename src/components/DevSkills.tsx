@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaGitAlt, FaDocker, FaAws } from 'react-icons/fa';
-import { SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiMongodb, SiPostgresql, SiRedis, SiGraphql, SiExpress } from 'react-icons/si';
+import { FaReact, FaNodeJs, FaGitAlt, FaDocker, FaAws, FaApple, FaAndroid } from 'react-icons/fa';
+import { SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiMongodb, SiPostgresql, SiRedis, SiGraphql, SiExpress, SiSwift, SiKotlin, SiFlutter } from 'react-icons/si';
 
 const DevSkills = () => {
   const skillCategories = [
@@ -39,6 +39,16 @@ const DevSkills = () => {
         { name: "Git", icon: <FaGitAlt className="text-orange-500" />, level: 90 },
         { name: "Docker", icon: <FaDocker className="text-blue-500" />, level: 80 },
         { name: "AWS", icon: <FaAws className="text-yellow-500" />, level: 75 }
+      ]
+    },
+    {
+      name: "Mobile",
+      skills: [
+        { name: "iOS", icon: <FaApple className="text-gray-300" />, level: 80 },
+        { name: "Android", icon: <FaAndroid className="text-green-400" />, level: 80 },
+        { name: "Swift", icon: <SiSwift className="text-orange-500" />, level: 75 },
+        { name: "Kotlin", icon: <SiKotlin className="text-purple-500" />, level: 75 },
+        { name: "Flutter", icon: <SiFlutter className="text-blue-400" />, level: 85 }
       ]
     }
   ];

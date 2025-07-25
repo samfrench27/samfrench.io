@@ -18,7 +18,7 @@ const InteractiveJourney = () => {
       achievements: [
         'Designed and launched Variable Recurring Payments proposition in the UK',
         'Partnered with Tier 1 Financial Institution to launch first commercial VRP agreement',
-        'Led market expansion across 7+ European countries',
+        'Led market expansion across 8+ European countries',
         'Improved payment conversion to 80% and success rate to 95%',
         
       ]
