@@ -13,16 +13,7 @@ export default function About() {
         <div className="flex flex-wrap lg:flex-nowrap gap-12">
           <div className="w-full lg:w-1/2">
             <p className="mb-4 text-gray-700">
-              I am a mission-driven product leader who thrives on scaling businesses and high-performing teams. With a passion for growing and developing teams in fast-paced engineering environments, I specialize in taking innovative digital products from ideation to market.
-            </p>
-            <p className="mb-4 text-gray-700">
-              Currently serving as the Director of Product at <a href="https://token.io" target="_blank" rel="noopener" className="text-blue-600 hover:underline">Token.io</a>, I lead product strategy for Account-to-Account payments and our Global Connectivity Network, expanding market presence across EMEA and driving payment performance improvements.
-            </p>
-            <p className="mb-4 text-gray-700">
-              Throughout my career, I&apos;ve focused on building financial and payment products that leverage Open Banking capabilities to deliver better customer experiences and innovative payment solutions.
-            </p>
-            <p className="text-gray-700">
-              Based in Manchester, UK, I hold a First Class BSc in Digital and Technology Solutions from Manchester Metropolitan University.
+              Mission‑driven product leader focused on Open Banking–powered payments and data products, from idea to launch to iterative growth. Currently Director of Product at Token.io, leading A2A payments and a connectivity network across EMEA; previously at Barclays, shipped in‑app account aggregation and permissions management. Passionate about market‑leading UX and building teams that deliver measurable outcomes. Manchester‑based; First‑Class BSc (Hons), Manchester Metropolitan University.
             </p>
           </div>
           

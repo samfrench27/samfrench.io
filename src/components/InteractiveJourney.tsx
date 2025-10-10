@@ -7,68 +7,67 @@ const InteractiveJourney = () => {
   const [activeCard, setActiveCard] = useState<string | null>(null);
   
   const careerSteps = [
-    {
-      id: 'token',
-      title: 'Token.io',
-      logoSrc: '/logos/token-io.svg',
-      logoAlt: 'Token.io logo',
-      role: 'Director of Product',
-      period: '2022 - Present',
-      color: 'bg-blue-600',
-      achievements: [
-        'Designed and launched Variable Recurring Payments proposition in the UK',
-        'Partnered with Tier 1 Financial Institution to launch first commercial VRP agreement',
-        'Led market expansion across 8+ European countries',
-        'Improved payment conversion to 80% and success rate to 95%',
-        
-      ]
-    },
-    {
-      id: 'evelyn',
-      title: 'Evelyn Partners',
-      logoSrc: '/logos/bestinvest.svg',
-      logoAlt: 'BestInvest logo',
-      role: 'Product Lead, Shared Services',
-      period: '2021 - 2022',
-      color: 'bg-purple-600',
-      achievements: [
-        'Managed product development for corporate intranet and investment web apps',
-        'Led API transformation program for BestInvest platform',
-        'Implemented agile methodologies across development teams',
-        'Improved time-to-market for new features by 35%'
-      ]
-    },
-    {
-      id: 'auden',
-      title: 'Auden',
-      logoSrc: '/logos/auden.svg',
-      logoAlt: 'Auden logo',
-      role: 'Product Delivery Manager',
-      period: '2021',
-      color: 'bg-teal-600',
-      achievements: [
-        'Oversaw product delivery for Customer Acquisition value stream',
-        'Led company rebrand across website and mobile app',
-        'Migrated payment gateway achieving 20% cost reduction',
-        'Integrated Open Banking with Experian improving loan acceptance by 12%'
-      ]
-    },
-    {
-      id: 'barclays',
-      title: 'Barclays',
-      logoSrc: '/logos/barclays.svg',
-      logoAlt: 'Barclays logo',
-      role: 'Project Manager, Open Banking & Strategic Partnerships',
-      period: '2017 - 2020',
-      color: 'bg-indigo-600',
-      achievements: [
-        'Led technical delivery of CMA Open Banking PIS and AIS Products',
-        'Delivered industry-first account aggregation in Barclays App',
-        'Launched Premium API service with MoneySupermarket.com generating £18m revenue',
-        'Managed cross-functional team of 12 developers and business analysts'
-      ]
-    }
-  ];
+{
+id: 'token',
+title: 'Token.io',
+logoSrc: '/logos/token-io.svg',
+logoAlt: 'Token.io logo',
+role: 'Director of Product',
+period: '2022 – Present',
+color: 'bg-blue-600',
+achievements: [
+'Led product strategy across Account-to-Account payments and the Global Connectivity Network',
+'Launched Pay by Link and hosted PIS checkout experiences with iterative A/B testing',
+'Delivered Sweeping VRP (mandates, consent flows, control parameters) and progressed cVRP with banks',
+'Expanded coverage across 20+ EMEA markets with a focus on reliability and performance'
+]
+},
+{
+id: 'evelyn',
+title: 'Evelyn Partners (BestInvest)',
+logoSrc: '/logos/bestinvest.svg',
+logoAlt: 'BestInvest logo',
+role: 'Product Lead, Shared Services',
+period: '2021 – 2022',
+color: 'bg-purple-600',
+achievements: [
+'Built and led a new multi‑disciplinary product team (PO + 5 engineers)',
+'Delivered a new corporate intranet for 2,000 colleagues',
+'Migrated from FileMaker to a Snowflake data platform and API‑led services',
+'Improved performance and reliability (p95 latency 2.3 s to 240 ms; uptime 99.9%)'
+]
+},
+{
+id: 'auden',
+title: 'Auden',
+logoSrc: '/logos/auden.svg',
+logoAlt: 'Auden logo',
+role: 'Product Delivery Lead, Customer Acquisition',
+period: '2021',
+color: 'bg-teal-600',
+achievements: [
+'Led the Customer Acquisition value stream; managed a 16‑person cross‑functional team',
+'Directed a rebrand across website and mobile app to improve customer experience',
+'Migrated payment gateway reducing processing costs by 20%',
+'Integrated Open Banking with Experian to improve loan acceptance by 12%'
+]
+},
+{
+id: 'barclays',
+title: 'Barclays',
+logoSrc: '/logos/barclays.svg',
+logoAlt: 'Barclays logo',
+role: 'Project Manager, Open Banking & Strategic Partnerships',
+period: '2017 – 2020',
+color: 'bg-indigo-600',
+achievements: [
+'Delivered CMA Open Banking PIS/AIS compliance (v1–v3)',
+'Shipped in‑app account aggregation and Open Banking permissions management in the Barclays app',
+'Launched the first Premium API service with MoneySuperMarket (personalised loan quotes)',
+'Partnered across engineering, design and compliance to ship B2C features at scale'
+]
+}
+];
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
